@@ -1,12 +1,13 @@
-# Module name using following format (<provider>-terraform-<description>, example: azure-terraform-vnet) 
+# terraform-azure-recovery-services-vault) 
 
-<Module description>
+Deploys a Recovery Services Vault and Backup Policy for VMs
+
 
 It supports creating:
 
-- list resources created by module
+- REcovery Services Vaultazurerm_recovery_services_vault
+- Backup Policies
 
-<Describe any submodules> 
 
 ## Usage Examples
 You can go to the tests folder, or review the examples folder: [examples](./examples)
@@ -37,20 +38,44 @@ Azure
 - [Terraform Provider for Azure](https://github.com/hashicorp/terraform-provider-azurerm)
 - CLI Tool [az](https://docs.microsoft.com/en-us/cli/azure/)
 
-AWS  
-- [Terraform Provider for AWS](https://github.com/hashicorp/terraform-provider-aws)
-- CLI Tool [aws-cli](https://aws.amazon.com/cli/)
+## Providers
 
-GCP  
-- [Terraform Provider for GCP](https://github.com/hashicorp/terraform-provider-google)
-- [Terraform Provider for GCP Beta](https://github.com/terraform-providers/terraform-provider-google-beta)
-- CLI Tool [gcloud](https://cloud.google.com/sdk/gcloud/)
+| Name | Version |
+|------|---------|
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
 
+## Modules
 
-<Any configuration needed on cloud plartform such as:>
-- Service Principals
-- IAM Roles
-- Service Accounts
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [azurerm_backup_policy_vm.backup_policy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/backup_policy_vm) | resource |
+| [azurerm_recovery_services_vault.rsv](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/recovery_services_vault) | resource |
+| [azurerm_resource_group.rsv](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/resource_group) | data source |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_cross_region_restore_enabled"></a> [cross\_region\_restore\_enabled](#input\_cross\_region\_restore\_enabled) | Is cross region restore enabled for this Vault? | `bool` | `false` | no |
+| <a name="input_location"></a> [location](#input\_location) | Azure location for Key Vault. | `string` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | Name of the MySQL Server. Changing this forces a new resource to be created | `string` | n/a | yes |
+| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Name of the application ressource group, herited from infra module | `string` | n/a | yes |
+| <a name="input_sku"></a> [sku](#input\_sku) | Sets the vault's SKU. Possible values include: Standard, RS0. | `string` | `"Standard"` | no |
+| <a name="input_soft_delete_enabled"></a> [soft\_delete\_enabled](#input\_soft\_delete\_enabled) | Is soft delete enable for this Vault? Defaults | `bool` | `true` | no |
+| <a name="input_storage_mode_type"></a> [storage\_mode\_type](#input\_storage\_mode\_type) | The storage type of the Recovery Services Vault. | `string` | `"GeoRedundant"` | no | 
+| <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to all resources created. | `map(string)` | `{}` | no |
+| <a name="input_backup_policies_vm"></a> [backup\_policies\_vm](#input\_backup\_policies\_vm) | Define vm backup Policy | <pre>map(object({}) | {} | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_id"></a> [id](#output\_id) | n/a |
+| <a name="output_name"></a> [name](#output\_name) | n/a |
 
 
 ## Contributing
