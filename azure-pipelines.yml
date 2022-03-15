@@ -13,17 +13,27 @@ steps:
   inputs:
     terraformVersion: 'latest'
 
-- bash: | 
-    terraform init
-    terraform plan
+# - bash: | 
+#     terraform init
+#     terraform plan
 
 
-# - task: TerraformTaskV2@2
-#   inputs:
-#     provider: 'azurerm'
-#     command: 'init'
-#     backendServiceArm: 'Module Tests'
-#     backendAzureRmResourceGroupName: 'Terraform-Storage-accountRG'
-#     backendAzureRmStorageAccountName: 'softcattfmodulestate'
-#     backendAzureRmContainerName: 'tf-modules-azure-recovery-services-vault'
-#     backendAzureRmKey: 'terraform.tfstate'
+- task: TerraformTaskV2@2
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'Module Tests'
+    backendAzureRmResourceGroupName: 'Terraform-Storage-accountRG'
+    backendAzureRmStorageAccountName: 'softcattfmodulestate'
+    backendAzureRmContainerName: 'tf-modules-azure-recovery-services-vault'
+    backendAzureRmKey: 'terraform.tfstate'
+    
+- task: TerraformTaskV2@2
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    backendServiceArm: 'Module Tests'
+    backendAzureRmResourceGroupName: 'Terraform-Storage-accountRG'
+    backendAzureRmStorageAccountName: 'softcattfmodulestate'
+    backendAzureRmContainerName: 'tf-modules-azure-recovery-services-vault'
+    backendAzureRmKey: 'terraform.tfstate'
