@@ -13,16 +13,12 @@ steps:
   inputs:
     terraformVersion: 'latest'
 
-# - bash: | 
-#     terraform init
-#     terraform plan
-
-
 - task: TerraformTaskV2@2
-  displayName: Init
+  displayName: Init Basic
   inputs:
     provider: 'azurerm'
     command: 'init'
+    workingDirectory: 'tests/basic/'
     backendServiceArm: 'Module Tests'
     backendAzureRmResourceGroupName: 'Terraform-Storage-accountRG'
     backendAzureRmStorageAccountName: 'softcattfmodulestate'
@@ -30,14 +26,17 @@ steps:
     backendAzureRmKey: 'terraform.tfstate'
     
 - task: TerraformTaskV2@2
-  displayName: 'validate'
+  displayName: Validate Basic
   inputs:
     provider: 'azurerm'
     command: 'validate'
+    workingDirectory: 'tests/basic/'
+
 
 - task: TerraformTaskV2@2
-  displayName: 'plan'
+  displayName: Plan Basic
   inputs:
     provider: 'azurerm'
     command: 'plan'
+    workingDirectory: 'tests/basic/'
     environmentServiceNameAzureRM: 'Module Tests'
