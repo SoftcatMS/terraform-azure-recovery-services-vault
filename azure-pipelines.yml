@@ -19,6 +19,7 @@ steps:
 
 
 - task: TerraformTaskV2@2
+  displayName: Init
   inputs:
     provider: 'azurerm'
     command: 'init'
@@ -29,11 +30,14 @@ steps:
     backendAzureRmKey: 'terraform.tfstate'
     
 - task: TerraformTaskV2@2
+  displayName: 'validate'
+  inputs:
+    provider: 'azurerm'
+    command: 'validate'
+
+- task: TerraformTaskV2@2
+  displayName: 'plan'
   inputs:
     provider: 'azurerm'
     command: 'plan'
-    backendServiceArm: 'Module Tests'
-    backendAzureRmResourceGroupName: 'Terraform-Storage-accountRG'
-    backendAzureRmStorageAccountName: 'softcattfmodulestate'
-    backendAzureRmContainerName: 'tf-modules-azure-recovery-services-vault'
-    backendAzureRmKey: 'terraform.tfstate'
+    environmentServiceNameAzureRM: 'Module Tests'
