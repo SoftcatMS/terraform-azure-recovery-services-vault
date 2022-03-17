@@ -28,7 +28,7 @@ module "basic_rsv" {
       weeks             = []
       weekdays          = []
       months            = []
-    },
+    }
     # weekly-utc-0100 = {
     #   name              = "weekly-0100-utc-test-basic"
     #   frequency         = "Weekly"
