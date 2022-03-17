@@ -18,29 +18,22 @@ module "basic_rsv" {
 
   backup_policies_vm = {
     daily-utc-0100 = {
-      name              = "daily-0100-utc-test-basic"
-      frequency         = "Daily"
-      retention_monthly = false
-      retention_yearly  = false
-      timezone          = "UTC"
-      time              = "01:00"
-      count             = 7
-      weeks             = []
-      weekdays          = []
-      months            = []
+      name      = "daily-0100-utc-test-basic"
+      frequency = "Daily"
+      timezone  = "UTC"
+      time      = "01:00"
+      count     = 7
+      weeks     = []
     }
-    # weekly-utc-0100 = {
-    #   name              = "weekly-0100-utc-test-basic"
-    #   frequency         = "Weekly"
-    #   retention_monthly = false
-    #   retention_yearly  = false
-    #   timezone          = "UTC"
-    #   time              = "01:00"
-    #   count             = 7
-    #   weeks             = []
-    #   weekdays          = ["Monday"]
-    #   months            = []
-    # }
+    weekly-utc-0100 = {
+      name      = "weekly-0100-utc-test-basic"
+      frequency = "Weekly"
+      timezone  = "UTC"
+      time      = "01:00"
+      count     = 7
+      weeks     = []
+      weekdays  = ["Monday"]
+    }
     # monthly-utc-0100 = {
     #   name              = "monthly-0100-utc-test-basic"
     #   frequency         = "Daily"

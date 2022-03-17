@@ -47,16 +47,12 @@ variable "sku" {
 variable "backup_policies_vm" {
   description = "Define vm backup Policy"
   type = map(object({
-    name              = string
-    frequency         = string
-    retention_monthly = bool
-    retention_yearly  = bool
-    timezone          = string
-    time              = string
-    count             = number
-    weekdays          = list(string)
-    weeks             = list(string)
-    months            = list(string)
+    name      = string
+    frequency = string
+    timezone  = string
+    time      = string
+    count     = number
+    weekdays  = list(string)
   }))
   default = {}
 }

@@ -48,23 +48,23 @@ resource "azurerm_backup_policy_vm" "backup_policy" {
     }
   }
 
-  dynamic "retention_monthly" {
-    for_each = each.value.retention_monthly != false ? [1] : []
-    content {
-      count    = each.value.count
-      weekdays = each.value.weekdays
-      weeks    = each.value.weeks
-    }
-  }
+  # dynamic "retention_monthly" {
+  #   for_each = each.value.retention_monthly != false ? [1] : []
+  #   content {
+  #     count    = each.value.count
+  #     weekdays = each.value.weekdays
+  #     weeks    = each.value.weeks
+  #   }
+  # }
 
-  dynamic "retention_yearly" {
-    for_each = each.value.retention_yearly != false ? [1] : []
-    content {
-      count    = each.value.count
-      weekdays = each.value.weekdays
-      weeks    = each.value.weeks
-      months   = each.value.months
-    }
-  }
+  # dynamic "retention_yearly" {
+  #   for_each = each.value.retention_yearly != false ? [1] : []
+  #   content {
+  #     count    = each.value.count
+  #     weekdays = each.value.weekdays
+  #     weeks    = each.value.weeks
+  #     months   = each.value.months
+  #   }
+  # }
 
 }

@@ -1,5 +1,7 @@
+trigger: none
+
 pr:
-- main
+  - main
 
 pool:
   vmImage: ubuntu-latest
@@ -45,8 +47,8 @@ stages:
           command: 'init'
           workingDirectory: 'tests/basic/'
           backendServiceArm: 'terraform-spn'
-          backendAzureRmResourceGroupName: 'Terraform-Storage-accountRG'
-          backendAzureRmStorageAccountName: 'softcattfmodulestate'
+          backendAzureRmResourceGroupName: 'rg-terraform-modules-state'
+          backendAzureRmStorageAccountName: 'softcatmodulestate'
           backendAzureRmContainerName: 'tf-modules-azure-recovery-services-vault'
           backendAzureRmKey: 'terraform.tfstate'
 
@@ -81,8 +83,8 @@ stages:
           command: 'init'
           workingDirectory: 'tests/advanced/'
           backendServiceArm: 'terraform-spn'
-          backendAzureRmResourceGroupName: 'Terraform-Storage-accountRG'
-          backendAzureRmStorageAccountName: 'softcattfmodulestate'
+          backendAzureRmResourceGroupName: 'rg-terraform-modules-state'
+          backendAzureRmStorageAccountName: 'softcatmodulestate'
           backendAzureRmContainerName: 'tf-modules-azure-recovery-services-vault'
           backendAzureRmKey: 'terraform.tfstate'
 
@@ -168,8 +170,8 @@ stages:
           command: 'init'
           workingDirectory: 'tests/basic/'
           backendServiceArm: 'terraform-spn'
-          backendAzureRmResourceGroupName: 'Terraform-Storage-accountRG'
-          backendAzureRmStorageAccountName: 'softcattfmodulestate'
+          backendAzureRmResourceGroupName: 'rg-terraform-modules-state'
+          backendAzureRmStorageAccountName: 'softcatmodulestate'
           backendAzureRmContainerName: 'tf-modules-azure-recovery-services-vault'
           backendAzureRmKey: 'terraform.tfstate'
 
@@ -188,8 +190,8 @@ stages:
           command: 'init'
           workingDirectory: 'tests/advanced/'
           backendServiceArm: 'terraform-spn'
-          backendAzureRmResourceGroupName: 'Terraform-Storage-accountRG'
-          backendAzureRmStorageAccountName: 'softcattfmodulestate'
+          backendAzureRmResourceGroupName: 'rg-terraform-modules-state'
+          backendAzureRmStorageAccountName: 'softcatmodulestate'
           backendAzureRmContainerName: 'tf-modules-azure-recovery-services-vault'
           backendAzureRmKey: 'terraform.tfstate'
 
