@@ -1,11 +1,11 @@
-# terraform-azure-recovery-services-vault) 
+# terraform-azure-recovery-services-vault
 
 Deploys a Recovery Services Vault and Backup Policy for VMs
 
 
 It supports creating:
 
-- REcovery Services Vaultazurerm_recovery_services_vault
+- Recovery Services Vault (azurerm_recovery_services_vault)
 - Backup Policies
 
 
