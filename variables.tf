@@ -43,6 +43,12 @@ variable "sku" {
   default     = "Standard"
 }
 
+variable "log_analytics_workspace" {
+  description = "Name of the Log Analytics Workspace."
+  type        = string
+  default     = "UKS-LOG-SOFTCAT-MANAGEMENT"
+}
+
 
 variable "backup_policies_vm" {
   description = "Define vm backup Policy"
