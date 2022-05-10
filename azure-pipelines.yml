@@ -46,7 +46,7 @@ stages:
           provider: 'azurerm'
           command: 'init'
           workingDirectory: 'tests/basic/'
-          backendServiceArm: 'terraform-spn'
+          backendServiceArm: 'sandbox-terraform-testing-spn'
           backendAzureRmResourceGroupName: 'rg-terraform-modules-state'
           backendAzureRmStorageAccountName: 'softcatmodulestate'
           backendAzureRmContainerName: 'tf-modules-azure-recovery-services-vault'
@@ -65,7 +65,7 @@ stages:
           provider: 'azurerm'
           command: 'plan'
           workingDirectory: 'tests/basic/'
-          environmentServiceNameAzureRM: 'terraform-spn'
+          environmentServiceNameAzureRM: 'sandbox-terraform-testing-spn'
 
       - task: TerraformTaskV2@2
         displayName: Apply Basic
@@ -73,7 +73,7 @@ stages:
           provider: 'azurerm'
           command: 'apply'
           workingDirectory: 'tests/basic/'
-          environmentServiceNameAzureRM: 'terraform-spn'
+          environmentServiceNameAzureRM: 'sandbox-terraform-testing-spn'
 
 
       - task: TerraformTaskV2@2
@@ -82,7 +82,7 @@ stages:
           provider: 'azurerm'
           command: 'init'
           workingDirectory: 'tests/advanced/'
-          backendServiceArm: 'terraform-spn'
+          backendServiceArm: 'sandbox-terraform-testing-spn'
           backendAzureRmResourceGroupName: 'rg-terraform-modules-state'
           backendAzureRmStorageAccountName: 'softcatmodulestate'
           backendAzureRmContainerName: 'tf-modules-azure-recovery-services-vault'
@@ -101,7 +101,7 @@ stages:
           provider: 'azurerm'
           command: 'plan'
           workingDirectory: 'tests/advanced/'
-          environmentServiceNameAzureRM: 'terraform-spn'
+          environmentServiceNameAzureRM: 'sandbox-terraform-testing-spn'
 
       - task: TerraformTaskV2@2
         displayName: Apply Advanced
@@ -109,7 +109,7 @@ stages:
           provider: 'azurerm'
           command: 'apply'
           workingDirectory: 'tests/advanced/'
-          environmentServiceNameAzureRM: 'terraform-spn'
+          environmentServiceNameAzureRM: 'sandbox-terraform-testing-spn'
 
 
   - stage: QC
@@ -169,7 +169,7 @@ stages:
           provider: 'azurerm'
           command: 'init'
           workingDirectory: 'tests/basic/'
-          backendServiceArm: 'terraform-spn'
+          backendServiceArm: 'sandbox-terraform-testing-spn'
           backendAzureRmResourceGroupName: 'rg-terraform-modules-state'
           backendAzureRmStorageAccountName: 'softcatmodulestate'
           backendAzureRmContainerName: 'tf-modules-azure-recovery-services-vault'
@@ -181,7 +181,7 @@ stages:
           provider: 'azurerm'
           command: 'destroy'
           workingDirectory: 'tests/basic/'
-          environmentServiceNameAzureRM: 'terraform-spn'
+          environmentServiceNameAzureRM: 'sandbox-terraform-testing-spn'
 
       - task: TerraformTaskV2@2
         displayName: Init Advanced
@@ -189,7 +189,7 @@ stages:
           provider: 'azurerm'
           command: 'init'
           workingDirectory: 'tests/advanced/'
-          backendServiceArm: 'terraform-spn'
+          backendServiceArm: 'sandbox-terraform-testing-spn'
           backendAzureRmResourceGroupName: 'rg-terraform-modules-state'
           backendAzureRmStorageAccountName: 'softcatmodulestate'
           backendAzureRmContainerName: 'tf-modules-azure-recovery-services-vault'
@@ -201,4 +201,4 @@ stages:
           provider: 'azurerm'
           command: 'destroy'
           workingDirectory: 'tests/advanced/'
-          environmentServiceNameAzureRM: 'terraform-spn'
+          environmentServiceNameAzureRM: 'sandbox-terraform-testing-spn'
