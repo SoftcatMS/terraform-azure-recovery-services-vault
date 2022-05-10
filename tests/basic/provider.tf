@@ -5,7 +5,7 @@ terraform {
   backend "azurerm" {
     resource_group_name  = "rg-terraform-modules-state"
     storage_account_name = "softcatmodulestate"
-    container_name       = "tf-modules-azure-recovery-services-vault"
+    container_name       = "tf-modules-azure-recovery-services-vault-basic"
     key                  = "terraform.tfstate"
   }
 
