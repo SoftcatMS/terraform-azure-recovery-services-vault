@@ -1,10 +1,11 @@
-# output "id" {
-#   value = azurerm_backup_policy_vm.backup_policy.id
-# }
-
-# output "name" {
-#   value = azurerm_backup_policy_vm.backup_policy.name
-# }
+output "rsv_id" {
+  description = "The id of the newly created recovery services vault"
+  value       = azurerm_recovery_services_vault.rsv.id
+}
 
 
-# azurerm_backup_policy_vm.backup_policy[each.key]
+output "rsv_diag_id" {
+  description = "The id of the newly created recovery services vault diagnostics log"
+  value       = azurerm_monitor_diagnostic_setting.rsv_diag.id
+}
+
