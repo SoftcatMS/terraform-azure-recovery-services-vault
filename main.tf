@@ -3,7 +3,8 @@ data "azurerm_resource_group" "rsv" {
 }
 
 data "azurerm_log_analytics_workspace" "rsv_workspace" {
-  name = var.log_analytics_workspace
+  name                = var.log_analytics_workspace
+  resource_group_name = var.log_analytics_workspace_resource_group
 }
 
 

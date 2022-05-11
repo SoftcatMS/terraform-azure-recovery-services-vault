@@ -49,6 +49,11 @@ variable "log_analytics_workspace" {
   default     = "UKS-LOG-SOFTCAT-MANAGEMENT"
 }
 
+variable "log_analytics_workspace_resource_group" {
+  description = "Name of the Log Analytics Workspace resource group."
+  type        = string
+  default     = "UKS-RSG-SOFTCAT-MANAGEMENT"
+}
 
 variable "backup_policies_vm" {
   description = "Define vm backup Policy"

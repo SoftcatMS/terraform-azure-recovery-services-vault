@@ -1,4 +1,4 @@
-resource "azurerm_resource_group" "rgs_rv_test_advanced" {
+resource "azurerm_resource_group" "rg_rsv_test_advanced" {
   name     = "rg-test-rsv-advanced-resources"
   location = "uksouth"
 }
@@ -8,21 +8,23 @@ resource "azurerm_log_analytics_workspace" "activity_logs" {
   location            = azurerm_resource_group.rg_rsv_test_advanced.location
   resource_group_name = azurerm_resource_group.rg_rsv_test_advanced.name
   sku                 = "PerGB2018"
+  depends_on          = [azurerm_resource_group.rg_rsv_test_advanced]
 }
 
 
-
 module "advanced_rsv" {
-  source                       = "../../"
-  name                         = "rsv-uks-test-advanced"
-  location                     = "uksouth"
-  resource_group_name          = azurerm_resource_group.rgs_rv_test_advanced.name
-  storage_mode_type            = "GeoRedundant"
-  cross_region_restore_enabled = false
-  soft_delete_enabled          = false
-  sku                          = "Standard"
+  source                                 = "../../"
+  name                                   = "rsv-uks-test-advanced"
+  location                               = "uksouth"
+  resource_group_name                    = azurerm_resource_group.rg_rsv_test_advanced.name
+  log_analytics_workspace                = azurerm_log_analytics_workspace.activity_logs.name
+  log_analytics_workspace_resource_group = "rg-test-rsv-advanced-resources"
+  storage_mode_type                      = "GeoRedundant"
+  cross_region_restore_enabled           = false
+  soft_delete_enabled                    = false
+  sku                                    = "Standard"
 
-  depends_on = [azurerm_resource_group.rgs_rv_test_advanced]
+  depends_on = [azurerm_resource_group.rg_rsv_test_advanced]
 
   backup_policies_vm = {
     daily-utc-0100 = {
