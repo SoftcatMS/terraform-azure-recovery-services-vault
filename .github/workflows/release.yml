@@ -25,7 +25,7 @@ jobs:
     # Return changelog between two git references
     - name: Generate changelog
       id: changelog
-      uses: metcalfc/changelog-generator@e5306b306fa2e34f05258789e0e5c526c1bd4352 # https://github.com/metcalfc/changelog-generator
+      uses: mmetcalfc/changelog-generator@v3.0.0 # https://github.com/metcalfc/changelog-generator
       with:
         myToken: ${{ secrets.GITHUB_TOKEN }}
 
